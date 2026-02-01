@@ -60,10 +60,31 @@ Accessible via `/admin`, this section allows management of the entire platform:
 -   **Auth**: Secure login portal with automatic session timeouts.
 
 ### 3. Client Section
-The `/client` or home route serves the end-user trading interface. It is designed to be highly interactive and scalable for financial tools and real-time data.
+The `/client` or home route serves the end-user interface. It is designed to be highly interactive and scalable for financial tools and real-time data.
 
 ### 4. Database Interaction
 The system uses a Singleton-patterned `Database` wrapper around PDO, providing secure, prepared-statement-driven methods (`read`, `create`, `update`, `delete`) to prevent SQL injection.
 
-## 📝 Recent Restructuring
-The project has recently been optimized to move `header.php` and `footer.php` files directly into their respective section directories (`app/views/admin/` and `app/views/client/`), removing redundant layout folders for a flatter, more intuitive structure.
+## 🔄 Framework Transition Guide
+
+To convert this baseline framework into a new project (like "Trade Pilot"), follow these essential steps:
+
+1.  **Project Root Setup**:
+    - Rename the root directory to your new project name (e.g., from `php-mvc-app` to `trade-pilot`).
+
+2.  **Configuration Alignment**:
+    - Open `app/config.php` and update the following:
+        - `SITENAME`: Your new app name.
+        - `BASE_URL`: The local path to your project's `/public` folder.
+        - `DB_NAME`: The name of the database you will create for the new project.
+
+3.  **Database Preparation**:
+    - Open `database_schema.sql` and update the `CREATE DATABASE` and `USE` statements to match your new `DB_NAME`.
+    - Update the default admin user's credentials or any placeholder data in the `INSERT` statements to reflect your project.
+
+4.  **Rewrite Rules**:
+    - Verify that `.htaccess` files in the root and `/public` are correctly routing traffic. No changes are usually required unless your local environment has unique pathing requirements.
+
+5.  **Initialization**:
+    - Run the `create_admin.php` script (via CLI or Browser) to seeds the initial user in your new database.
+    - **Delete** `create_admin.php` immediately after use for security.
