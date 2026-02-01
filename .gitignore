@@ -1,0 +1,14 @@
+# PHP MVC App - Git Ignore
+
+# Logs
+/app/logs/*.log
+
+# Database Config (Optional: use config.example.php instead in a real setup)
+# /app/config.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# XAMPP/Local temp files
+*.tmp
