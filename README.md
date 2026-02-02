@@ -17,9 +17,9 @@
 php-mvc-app/              # (Project root folder)
 ├── app/                  # Application Core
 │   ├── controllers/      # Route controllers (Admin/Client)
-│   ├── core/             # Core classes (App, Controller, Database)
-│   ├── models/           # Data models
-│   ├── views/            # User interface files
+│   ├── core/             # Core classes (App, Controller, Database, Flash etc.)
+│   ├── models/           # Data models (Admin/Client)
+│   ├── views/            # User interface files (Admin/Client)
 │   ├── logs/             # Application logs
 │   ├── config.php        # Global Configuration
 │   └── init.php          # Main bootstrap file
@@ -29,7 +29,7 @@ php-mvc-app/              # (Project root folder)
 │   └── index.php         # Main application loader
 ├── logs/                 # Application error and info logs
 ├── .htaccess             # URL Rewriting for clean URLs
-└── README.md             # This file
+└── README.md             # Project description file
 ```
 
 ## 🛠️ Setup & Installation
