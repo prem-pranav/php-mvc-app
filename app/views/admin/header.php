@@ -22,14 +22,14 @@
             <i class="bi bi-speedometer2"></i>
             <span>Dashboard</span>
         </a>
-        
+
         <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'superadmin'): ?>
         <a href="<?= BASE_URL ?>/admin/users" class="nav-item <?= ($data['title'] == 'User Management') ? 'active' : '' ?>">
             <i class="bi bi-people"></i>
             <span>Users</span>
         </a>
         <?php endif; ?>
-        
+
         <a href="<?= BASE_URL ?>/admin/auth/logout" class="nav-item mt-auto" style="color: var(--danger);">
             <i class="bi bi-box-arrow-right"></i>
             <span>Logout</span>
@@ -42,11 +42,16 @@
 
 <div class="main-content">
     <header class="top-header">
-        <div class="header-title"><?= isset($data['title']) ? $data['title'] : 'Dashboard' ?></div>
+        <div style="display:flex; align-items:center; gap:12px">
+            <button id="sidebarToggle" class="btn btn-outline" aria-label="Toggle sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="header-title"><?= isset($data['title']) ? $data['title'] : 'Dashboard' ?></div>
+        </div>
         <div class="user-menu">
             <div class="user-info-detailed">
                 <span class="user-name-detailed">
-                    <?= $_SESSION['user_name'] ?? 'Admin' ?> 
+                    <?= $_SESSION['user_name'] ?? 'Admin' ?>
                     <span class="user-role-inline">(<?= ucfirst($_SESSION['user_role'] ?? 'Admin') ?>)</span>
                 </span>
             </div>

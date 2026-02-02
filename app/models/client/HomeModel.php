@@ -8,6 +8,6 @@ class HomeModel {
     }
 
     public function getWelcomeMessage() {
-        return "Welcome to the Trading App Client Section!";
+        return "Welcome to the PHP MVC App Client Section!";
     }
 }

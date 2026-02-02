@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/client.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding" style="display: flex; align-items: center; gap: 10px;">
-                <img src="<?= BASE_URL ?>/img/logo.png" alt="Logo" style="width: 35px; height: 35px; object-fit: contain;">
+    <header class="page-header">
+        <div class="container header-inner">
+            <div id="branding" class="branding">
+                <img src="<?= BASE_URL ?>/img/logo.png" alt="Logo" class="logo">
                 <h1><span class="highlight"><?= SITENAME ?></span></h1>
             </div>
             <nav>
-                <ul>
+                <ul class="nav-list">
                     <li><a href="<?= BASE_URL ?>">Home</a></li>
                     <li><a href="<?= BASE_URL ?>/admin">Admin</a></li>
                 </ul>
