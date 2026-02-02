@@ -40,7 +40,27 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    transition: width 0.3s ease;
+    transition: width 0.25s ease, transform 0.25s ease;
+}
+
+/* Collapsed / responsive sidebar */
+.sidebar.collapsed{width:72px}
+.sidebar.collapsed .sidebar-brand span{display:none}
+.sidebar.collapsed .nav-item span{display:none}
+.sidebar.collapsed .sidebar-brand img{margin-right:0}
+
+/* Mobile: hide sidebar off-canvas until toggled */
+body.sidebar-open .sidebar{transform:translateX(0)}
+.sidebar{transform:translateX(0)}
+@media (max-width: 900px){
+    .sidebar{position:fixed; left:0; top:0; bottom:0; width:260px; z-index:1050; transform:translateX(-110%); box-shadow:0 12px 30px rgba(2,6,23,0.2)}
+    body.sidebar-open{overflow:hidden}
+    body.sidebar-open::after{content:''; position:fixed; inset:0; background:rgba(2,6,23,0.45); z-index:1040}
+    .main-content{padding-left:0}
+}
+
+@media (max-width: 640px){
+    .top-header{padding:0 1rem}
 }
 
 .sidebar-brand {
