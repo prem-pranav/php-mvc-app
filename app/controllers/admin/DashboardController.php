@@ -2,11 +2,7 @@
 
 class DashboardController extends Controller {
     public function index() {
-        // Enforce Login
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . BASE_URL . '/admin/auth/login');
-            exit;
-        }
+        Auth::requirePermission('VIEW_DASHBOARD');
 
         $data = ['title' => 'Dashboard'];
         $this->view('admin/header', $data);
