@@ -20,6 +20,7 @@
                 <div class="col-md-6">
                     <label for="role" class="form-label fw-medium">Role</label>
                     <select name="role" class="form-select" required>
+                        <option value="user">User</option>
                         <option value="admin">Admin</option>
                         <option value="superadmin">Superadmin</option>
                     </select>

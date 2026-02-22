@@ -23,7 +23,7 @@
             <span>Dashboard</span>
         </a>
 
-        <?php if (isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'superadmin'): ?>
+        <?php if (Auth::can('MANAGE_USERS')): ?>
         <a href="<?= BASE_URL ?>/admin/users" class="nav-item <?= ($data['title'] == 'User Management') ? 'active' : '' ?>">
             <i class="bi bi-people"></i>
             <span>Users</span>
@@ -51,8 +51,8 @@
         <div class="user-menu">
             <div class="user-info-detailed">
                 <span class="user-name-detailed">
-                    <?= $_SESSION['user_name'] ?? 'Admin' ?>
-                    <span class="user-role-inline">(<?= ucfirst($_SESSION['user_role'] ?? 'Admin') ?>)</span>
+                    <?= Auth::user()->name ?>
+                    <span class="user-role-inline">(<?= ucfirst(Auth::user()->role) ?>)</span>
                 </span>
             </div>
             <a href="<?= BASE_URL ?>/admin/auth/logout" class="btn btn-outline btn-sm" title="Logout">

@@ -16,6 +16,7 @@
                 <div class="col-md-6">
                     <label for="role" class="form-label fw-medium">Role</label>
                     <select name="role" class="form-select" required>
+                        <option value="user" <?= $data['user']->role == 'user' ? 'selected' : '' ?>>User</option>
                         <option value="admin" <?= $data['user']->role == 'admin' ? 'selected' : '' ?>>Admin</option>
                         <option value="superadmin" <?= $data['user']->role == 'superadmin' ? 'selected' : '' ?>>Superadmin</option>
                     </select>

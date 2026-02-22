@@ -4,18 +4,7 @@ class Users extends Controller {
     private $userModel;
 
     public function __construct() {
-        // Enforce Login
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: ' . BASE_URL . '/admin/auth/login');
-            exit;
-        }
-
-        // RBAC: Only superadmin can access this controller
-        if ($_SESSION['user_role'] != 'superadmin') {
-            Flash::set('error', 'Access Denied. You do not have permission to manage users.');
-            header('Location: ' . BASE_URL . '/admin/dashboard');
-            exit;
-        }
+        Auth::requirePermission('MANAGE_USERS');
 
         $this->userModel = $this->model('admin/User');
     }
