@@ -48,8 +48,10 @@ $logger->debug("Session payload state verified.");
 
 ### Log File Output Format (`app/logs/error.log`):
 ```text
-[2026-10-03 12:15:00] [INFO] User login attempt successful for admin@phpmvcapp.com
-[2026-10-03 12:16:12] [ERROR] Error [2]: Undefined variable $data in /app/controllers/client/HomeController.php on line 14
+[2026-10-03 12:25:00] [INFO] User login attempt successful.
+[2026-10-03 12:25:01] [WARNING] Unusual password attempt threshold reached.
+[2026-10-03 12:25:02] [ERROR] Database connection failure: Access denied for user 'root'@'localhost'
+[2026-10-03 12:25:03] [DEBUG] Session payload state verified.
 ```
 
 ---
