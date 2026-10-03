@@ -23,7 +23,6 @@
                 </div>
                 <div class="brand-text">
                     <span class="highlight"><?= SITENAME ?></span>
-                    <span class="badge-version">v2.4 Core</span>
                 </div>
             </a>
             

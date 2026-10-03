@@ -9,7 +9,7 @@
                 <div class="col-lg-6 hero-text-col">
                     <div class="hero-badge mb-3">
                         <span class="badge-dot"></span>
-                        <span>High Performance PHP MVC Engine v2.4</span>
+                        <span>High Performance PHP MVC Engine</span>
                     </div>
                     <h1 class="hero-title mb-4">
                         Build Scalable Web Apps with <span class="gradient-text">Zero Overhead</span>
@@ -316,7 +316,7 @@
     }
 
     <span class="token-keyword">public function</span> <span class="token-fn">getWelcomeMessage</span>() {
-        <span class="token-keyword">return</span> <span class="token-str">"Welcome to the PHP MVC App Client Section!"</span>;
+        <span class="token-keyword">return</span> <span class="token-str">"Welcome to the PHP MVC APP Client Section!"</span>;
     }
 }</code></pre>
                             </div>
@@ -330,7 +330,7 @@
 <span class="token-fn">define</span>(<span class="token-str">'DB_NAME'</span>, <span class="token-str">'phpmvcapp_db'</span>);
 
 <span class="token-fn">define</span>(<span class="token-str">'BASE_URL'</span>, <span class="token-str">'http://localhost/php-mvc-app/public'</span>);
-<span class="token-fn">define</span>(<span class="token-str">'SITENAME'</span>, <span class="token-str">'PHP MVC App'</span>);</code></pre>
+<span class="token-fn">define</span>(<span class="token-str">'SITENAME'</span>, <span class="token-str">'PHP MVC APP'</span>);</code></pre>
                             </div>
                         </div>
                     </div>

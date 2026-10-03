@@ -1,6 +1,6 @@
-# 🚀 PHP MVC App (v2.4 Core)
+# 🚀 PHP MVC APP
 
-**PHP MVC App** is a lightweight, custom-built PHP MVC starter framework designed for modern web applications. It provides a clean separation of concerns, a zero-dependency architecture, built-in security protections, an integrated logging system, and an out-of-the-box administrative panel with Role-Based Access Control (RBAC).
+**PHP MVC APP** is a lightweight, custom-built PHP MVC starter framework designed for modern web applications. It provides a clean separation of concerns, a zero-dependency architecture, built-in security protections, an integrated logging system, and an out-of-the-box administrative panel with Role-Based Access Control (RBAC).
 
 ---
 
@@ -8,7 +8,7 @@
 
 Most modern web projects are overwhelmed by heavy third-party vendor directories, complex build toolchains, and steep configuration learning curves. 
 
-**PHP MVC App** was built to solve this problem by providing a **lean, fast, and fully transparent PHP MVC foundation**. It offers sub-millisecond execution times, native PDO database security, centralized error logging, and modular admin/client separation—giving developers complete control over routing, business logic, and UI design without heavy vendor overhead.
+**PHP MVC APP** was built to solve this problem by providing a **lean, fast, and fully transparent PHP MVC foundation**. It offers sub-millisecond execution times, native PDO database security, centralized error logging, and modular admin/client separation—giving developers complete control over routing, business logic, and UI design without heavy vendor overhead.
 
 ---
 
@@ -167,7 +167,7 @@ Place the project folder inside your web server directory (e.g., `C:\xampp\htdoc
    define('DB_NAME', 'phpmvcapp_db');
 
    define('BASE_URL', 'http://localhost/php-mvc-app/public');
-   define('SITENAME', 'PHP MVC App');
+   define('SITENAME', 'PHP MVC APP');
    ```
 
 ### Step 3: Seed Initial Administrator Account
