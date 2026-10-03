@@ -7,4 +7,4 @@ define('DB_NAME', 'phpmvcapp_db');
 
 define('BASE_URL', 'http://localhost/php-mvc-app/public'); 
 
-define('SITENAME', 'PHP MVC App');
+define('SITENAME', 'PHP MVC APP');
