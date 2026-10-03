@@ -1,4 +1,12 @@
 <?php
+/**
+ * ============================================================================
+ *  File: Logger.php
+ *  Location: app/core/Logger.php
+ *  Description: Centralized application logging and global error handler
+ * ============================================================================
+ */
+
 class Logger {
     private $logFile;
     private $logLevel;
@@ -8,8 +16,8 @@ class Logger {
     const LEVEL_INFO = 'INFO';
     const LEVEL_DEBUG = 'DEBUG';
 
-    public function __construct($file = "error.log", $level = self::LEVEL_INFO) {
-        $this->logFile = $file;
+    public function __construct($file = null, $level = self::LEVEL_INFO) {
+        $this->logFile = $file ?: __DIR__ . '/../logs/error.log';
         $this->logLevel = $level;
         date_default_timezone_set("Asia/Kolkata");
         $dir = dirname($this->logFile);
@@ -40,7 +48,15 @@ class Logger {
         $this->writeLog(self::LEVEL_DEBUG, $message);
     }
 
-    // 🔥 Attach PHP's error handler to this logger
+    // Log HTTP Request total execution timing
+    public function logRequestPerformance($startTime) {
+        $executionTime = round((microtime(true) - $startTime) * 1000, 2);
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'CLI';
+        $uri = $_SERVER['REQUEST_URI'] ?? 'N/A';
+        $this->info("HTTP Request Completed: [$method] $uri - Duration: {$executionTime} ms");
+    }
+
+    // Attach PHP's global error handler to this logger
     public function registerErrorHandler() {
         set_error_handler([$this, 'handleError']);
     }
@@ -64,12 +80,11 @@ class Logger {
                 $this->info($errorMessage);
                 break;
         }
-        /* Returning false allows PHP internal error handler to continue
-           Returning true will suppress PHP default error handler */
         return true;
     }
 }
 
-$logger = new Logger(__DIR__ . "/error.log");
+// Instantiate global logger instance & register error handler
+$logger = new Logger(__DIR__ . "/../logs/error.log");
 $logger->registerErrorHandler();
 ?>

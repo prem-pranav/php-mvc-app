@@ -27,17 +27,18 @@ Most modern web projects are overwhelmed by heavy third-party vendor directories
 
 ## 📝 Centralized Logging System
 
-The framework includes an automated, file-based logging system (`app/logs/Logger.php`) that catches application runtime errors, warnings, and custom debug messages.
+The framework includes an automated, file-based logging system (`app/core/Logger.php`) that catches application runtime errors, warnings, and custom debug messages.
 
 ### Key Capabilities:
 - **Multiple Log Severity Levels**: Supports `LEVEL_ERROR`, `LEVEL_WARNING`, `LEVEL_INFO`, and `LEVEL_DEBUG`.
 - **Global Error Handler**: Automatically registers PHP's `set_error_handler()` to log runtime errors directly to `app/logs/error.log`.
+- **HTTP Request Performance Timing**: Automatically captures `REQUEST_TIME_FLOAT` via PHP's `register_shutdown_function()` and logs total request processing duration in milliseconds (`ms`).
 - **Automated Directory & File Creation**: Creates log directories safely with timestamped entries.
 
 ### Usage Example:
 ```php
 // Creating a Logger instance (or using global $logger)
-$logger = new Logger(__DIR__ . "/error.log");
+$logger = new Logger(__DIR__ . "/../logs/error.log");
 
 // Log custom severity entries
 $logger->info("User login attempt successful.");
@@ -52,6 +53,7 @@ $logger->debug("Session payload state verified.");
 [2026-10-03 12:25:01] [WARNING] Unusual password attempt threshold reached.
 [2026-10-03 12:25:02] [ERROR] Database connection failure: Access denied for user 'root'@'localhost'
 [2026-10-03 12:25:03] [DEBUG] Session payload state verified.
+[2026-10-03 12:25:04] [INFO] HTTP Request Completed: [GET] /php-mvc-app/public/admin/dashboard - Duration: 1.42 ms
 ```
 
 ---
@@ -122,9 +124,9 @@ php-mvc-app/
 │   │   ├── Controller.php       # Base Controller (Loads Models & Views)
 │   │   ├── Database.php         # PDO Singleton Database Wrapper
 │   │   ├── Flash.php            # Session Flash Alert Manager
-│   │   └── Session.php          # Session Guard Utilities
-│   ├── logs/                    # Application Logging Silo
 │   │   ├── Logger.php           # Core Logger class & error handler registration
+│   │   └── Session.php          # Session Guard Utilities
+│   ├── logs/                    # Application Log Output Silo
 │   │   └── error.log            # Runtime error & system log output file
 │   ├── models/                  # Data Logic & Database Layer
 │   │   ├── admin/               # Admin Models (UserModel, AuthModel)
