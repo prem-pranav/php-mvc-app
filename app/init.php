@@ -6,20 +6,12 @@
  * ============================================================================
  */
 
-// Capture HTTP request start time
-$requestStartTime = $_SERVER['REQUEST_TIME_FLOAT'] ?? microtime(true);
-
 // Start session
 session_start();
 
 // Load Logger first (required before autoloader)
 require_once __DIR__ . '/core/Logger.php';
 $logger->info("App started.");
-
-// Automatically log total HTTP request execution duration upon completion
-register_shutdown_function(function() use ($logger, $requestStartTime) {
-    $logger->logRequestPerformance($requestStartTime);
-});
 
 // Load Configuration
 require_once __DIR__ . '/config.php';
